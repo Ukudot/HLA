@@ -1,0 +1,15 @@
+program	testBadInput;
+#include("stdlib.hhf")
+static
+	u:	int32;
+begin	testBadInput;
+	try
+		stdout.put("Insert a signed integer: ");
+		stdin.get(u);
+		stdout.put("Your input is: ", u, nl);
+	  exception(ex.ConversionError)
+		stdout.put("Your input contained illegal characters", nl);
+	  exception(ex.ValueOutOfRange)
+		stdout.put("Your input is to larger", nl);
+	endtry;
+end		testBadInput;

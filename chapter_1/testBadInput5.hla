@@ -1,0 +1,26 @@
+program	testBadInput5;
+#include("stdlib.hhf")
+static
+	sum:	int32;
+begin	testBadInput5;
+	mov(0, sum);
+	for(mov(0, ebx); ebx < 8; add(1, ebx)) do
+		push(ebx);
+		forever
+			try
+				stdout.put("Enter a signed integer: ");
+				stdin.geti32();
+				unprotected break;
+			  exception(ex.ConversionError)
+				stdout.put("Your input contained illegal characters", nl);
+			  exception(ex.ValueOutOfRange)
+				stdout.put("Your input was too large", nl);
+			endtry;
+		endfor;
+		pop(ebx);
+		stdout.put("EBX: ", ebx, nl);
+		add(ebx, eax);
+		add(eax, sum);
+	endfor;
+	stdout.put("sum: ", sum, nl);
+end		testBadInput5;

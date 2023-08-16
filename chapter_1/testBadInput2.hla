@@ -1,0 +1,21 @@
+program testBadInput2;
+#include("stdlib.hhf")
+static
+	u:	int32;
+begin	testBadInput2;
+try
+	try
+		stdout.put("Enter a signed integer: ");
+		stdin.get(u);
+		stdout.put("Your input was: ", u, nl);
+	  exception(ex.ValueOutOfRange)
+		stdout.put("Your input was too large", nl);
+	endtry;
+	stdout.put("Your input did not fail due to a value out of range", nl);
+  exception(ex.ConversionError)
+	stdout.put("Your input contained illegal characters", nl);
+  anyexception
+	stdout.put("eax register: ", eax, nl);
+endtry;
+
+end		testBadInput2;

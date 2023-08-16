@@ -1,0 +1,22 @@
+program	testBadInput4;
+#include("stdlib.hhf")
+static
+	u:	int32;
+begin	testBadInput4;
+	forever
+		try
+			stdout.put("Enter a signed integer: ");
+			stdin.get(u);
+			stdout.put("Your input was: ", u, nl);
+		  unprotected
+			break;
+		  exception(ex.ConversionError)
+			stdout.put("Your input contained illegal characters", nl);
+		  exception(ex.ValueOutOfRange)
+			stdout.put("Your input was too large", nl);
+		endtry;
+	endfor;
+	stdout.put("Enter another signed integer: ");
+	stdin.get(u);
+	stdout.put("Your new input was: ", u, nl);
+end		testBadInput4;
