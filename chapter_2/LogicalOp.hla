@@ -1,0 +1,25 @@
+program	LogicalOp;
+#include("stdlib.hhf");
+begin	LogicalOp;
+	stdout.put("Left hand operand in hex: ");
+	stdin.get(eax);
+	stdout.put("Right hand operand in hex: ");
+	stdin.get(ebx);
+	
+	// and
+	mov(eax, ecx);
+	and(ebx, ecx);
+	stdout.put("$", eax, " and $", ebx, " = $", ecx, nl);
+	// or
+	mov(eax, ecx);
+	or(ebx, ecx);
+	stdout.put("$", eax, " or $", ebx, " = $", ecx, nl);
+	//xor
+	mov(eax, ecx);
+	xor(ebx, ecx);
+	stdout.put("$", eax, " xor $", ebx, " = $", ecx, nl);
+	// not
+	mov(eax, ecx);
+	not(ecx);
+	stdout.put("not $", eax, " = $", ecx, nl);
+end		LogicalOp;

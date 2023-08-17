@@ -1,0 +1,12 @@
+program	HexIO;
+#include("stdlib.hhf")
+static
+	value:	int32;
+begin	HexIO;
+	stdout.put("Enter an hexadecimal value: ");
+	stdin.geth32();
+	mov(eax, value);
+	stdout.put("You entered: $");
+	stdout.puth32(value);
+	stdout.newln();
+end		HexIO;

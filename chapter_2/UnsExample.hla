@@ -1,0 +1,17 @@
+program	UnsExample;
+#include("stdlib.hhf")
+static
+	u16:	uns16;
+begin	UnsExample;
+	stdout.put("Enter an integer between 32,768 and 65,535: ");
+	stdin.getu16();
+	mov(ax, u16);
+	
+	stdout.put(
+	"You entered: ",
+	u16,
+	", if you treat this as a signed integer, it is: "
+	);
+	stdout.puti16(u16);
+	stdout.newln();
+end		UnsExample;

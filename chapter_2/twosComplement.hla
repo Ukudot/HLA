@@ -1,0 +1,32 @@
+program	twosComplement;
+#include("stdlib.hhf")
+static
+	PosValue:	int8;
+	NegValue:	int8;
+begin	twosComplement;
+	stdout.put("Enter an integer between 0..127: ");
+	stdin.get(PosValue);
+
+	stdout.put(nl, "Value in ex: $");
+	stdout.puth8(PosValue);
+	stdout.newln();
+
+	mov(PosValue, al);
+	not(al);
+	stdout.put("Negate all bits : $", al, nl);	
+	add(1, al);
+	stdout.put("Add one: $", al, nl);
+	mov(al, NegValue);
+	stdout.put("Result in decimal: ", NegValue, nl);
+
+	stdout.put(
+	nl,
+	"Doing the same operation with NEG instruction",
+	nl
+	);
+	mov(PosValue, al);
+	neg(al);
+	mov(al, NegValue);
+	stdout.put("Negative hex value: $", al, nl);
+	stdout.put("Negative decimal value: ", NegValue, nl);
+end		twosComplement;
