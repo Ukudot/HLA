@@ -1,0 +1,18 @@
+program	charInputDemo;
+#include("stdlib.hhf")
+static
+	c:	char;
+begin	charInputDemo;
+	stdout.put("Enter a character: ");
+	stdin.get(c);
+	if (c >= 'a') then
+		if (c <= 'z') then
+			and($5F, c);
+		endif;
+	endif;
+	stdout.put(
+			"The character you entered, possibly,", nl,
+			"converted in uppercase was '");
+	stdout.putc(c);
+	stdout.put("'", nl);
+end		charInputDemo;
